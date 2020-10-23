@@ -25,6 +25,9 @@ public class Book {
     @ManyToMany(mappedBy = "books")
     private Set<Translator> translators = new HashSet<>();
 
+    @ManyToMany(mappedBy = "books")
+    private Set<Genre> genrres = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -87,5 +90,13 @@ public class Book {
 
     public void setTranslators(Set<Translator> translators) {
         this.translators = translators;
+    }
+
+    public Set<Genre> getGenrres() {
+        return genrres;
+    }
+
+    public void setGenrres(Set<Genre> genrres) {
+        this.genrres = genrres;
     }
 }
