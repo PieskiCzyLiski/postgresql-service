@@ -31,6 +31,14 @@ public class Book {
     @ManyToMany(mappedBy = "books")
     private Set<Epoch> epochs = new HashSet<>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "reservation_id", referencedColumnName = "id")
+    private Reservation reservation;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "favourite_id", referencedColumnName = "id")
+    private Favourite favourite;
+
     public Long getId() {
         return id;
     }
@@ -117,5 +125,21 @@ public class Book {
 
     public void setEpochs(Set<Epoch> epochs) {
         this.epochs = epochs;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public Favourite getFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(Favourite favourite) {
+        this.favourite = favourite;
     }
 }
