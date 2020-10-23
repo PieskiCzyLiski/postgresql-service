@@ -26,7 +26,10 @@ public class Book {
     private Set<Translator> translators = new HashSet<>();
 
     @ManyToMany(mappedBy = "books")
-    private Set<Genre> genrres = new HashSet<>();
+    private Set<Genre> genres = new HashSet<>();
+
+    @ManyToMany(mappedBy = "books")
+    private Set<Epoch> epochs = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -93,10 +96,26 @@ public class Book {
     }
 
     public Set<Genre> getGenrres() {
-        return genrres;
+        return genres;
     }
 
     public void setGenrres(Set<Genre> genrres) {
-        this.genrres = genrres;
+        this.genres = genrres;
+    }
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
+    }
+
+    public Set<Epoch> getEpochs() {
+        return epochs;
+    }
+
+    public void setEpochs(Set<Epoch> epochs) {
+        this.epochs = epochs;
     }
 }
