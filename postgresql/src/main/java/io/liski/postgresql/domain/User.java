@@ -1,73 +1,84 @@
 package io.liski.postgresql.domain;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "\"user\"")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
-    private String email;
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="role_id")//, nullable=false
-    private Role role;
+  private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "reservation_id", referencedColumnName = "user_id")
-    private Reservation reservation;
+  private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "favourite_id", referencedColumnName = "user_id")
-    private Favourite favourite;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "role_id")
+  private Role role;
 
-    public Long getUser_id() {
-        return user_id;
-    }
+  @OneToMany(mappedBy = "user")
+  private List<Reservation> reservations = new ArrayList<>();
 
-    public void setUser_id(Long id) {
-        this.user_id = id;
-    }
+  @OneToMany(mappedBy = "user")
+  private List<Favourite> favourites = new ArrayList<>();
 
-    public String getEmail() {
-        return email;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public Role getRole() {
-        return role;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public Reservation getReservation() {
-        return reservation;
-    }
+  public Role getRole() {
+    return role;
+  }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
+  public void setRole(Role role) {
+    this.role = role;
+  }
 
-    public Favourite getFavourite() {
-        return favourite;
-    }
+  public List<Reservation> getReservations() {
+    return reservations;
+  }
 
-    public void setFavourite(Favourite favourite) {
-        this.favourite = favourite;
-    }
+  public void setReservations(List<Reservation> reservations) {
+    this.reservations = reservations;
+  }
+
+  public List<Favourite> getFavourites() {
+    return favourites;
+  }
+
+  public void setFavourites(List<Favourite> favourites) {
+    this.favourites = favourites;
+  }
 }

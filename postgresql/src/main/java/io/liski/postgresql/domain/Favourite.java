@@ -1,58 +1,74 @@
 package io.liski.postgresql.domain;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "favourite")
 public class Favourite {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long favourite_id;
-    private String email;
-    private String name;
 
-    @OneToOne(mappedBy = "favourite")
-    private User user;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @OneToOne(mappedBy = "favourite")
-    private Book book;
+  private String email;
 
-    public Long getFavourite_id() {
-        return favourite_id;
-    }
+  private String name;
 
-    public void setFavourite_id(Long id) {
-        this.favourite_id = id;
-    }
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private User user;
 
-    public String getEmail() {
-        return email;
-    }
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinColumn(name = "book_id")
+  private List<Book> books = new ArrayList<>();
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public User getUser() {
-        return user;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public Book getBook() {
-        return book;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public List<Book> getBooks() {
+    return books;
+  }
+
+  public void setBooks(List<Book> books) {
+    this.books = books;
+  }
 }

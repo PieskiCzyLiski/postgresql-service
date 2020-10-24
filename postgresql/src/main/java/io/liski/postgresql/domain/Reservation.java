@@ -1,68 +1,83 @@
 package io.liski.postgresql.domain;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "reservation")
 public class Reservation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long reservation_id;
-    private String email;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
 
-    @OneToOne(mappedBy = "reservation")
-    private User user;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @OneToOne(mappedBy = "reservation")
-    private Book book;
+  private String email;
 
-    public Long getReservation_id() {
-        return reservation_id;
-    }
+  private LocalDateTime startDate;
 
-    public void setReservation_id(Long id) {
-        this.reservation_id = id;
-    }
+  private LocalDateTime endDate;
 
-    public String getEmail() {
-        return email;
-    }
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private User user;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "book_id")
+  private Book book;
 
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
+  public Long getReservation_id() {
+    return id;
+  }
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
+  public void setReservation_id(Long id) {
+    this.id = id;
+  }
 
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public User getUser() {
-        return user;
-    }
+  public LocalDateTime getStartDate() {
+    return startDate;
+  }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+  public void setStartDate(LocalDateTime startDate) {
+    this.startDate = startDate;
+  }
 
-    public Book getBook() {
-        return book;
-    }
+  public LocalDateTime getEndDate() {
+    return endDate;
+  }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
+  public void setEndDate(LocalDateTime endDate) {
+    this.endDate = endDate;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public Book getBook() {
+    return book;
+  }
+
+  public void setBook(Book book) {
+    this.book = book;
+  }
 }

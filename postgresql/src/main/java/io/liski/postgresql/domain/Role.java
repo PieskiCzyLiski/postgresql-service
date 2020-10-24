@@ -5,22 +5,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "role")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long role_id;
+    private Long id;
+
     private String name;
 
     @OneToMany(mappedBy="role")
     Set<User> users = new HashSet<>();
 
     public Long getRole_id() {
-        return role_id;
+        return id;
     }
 
     public void setRole_id(Long id) {
-        this.role_id = id;
+        this.id = id;
     }
 
     public String getName() {

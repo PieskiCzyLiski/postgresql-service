@@ -5,11 +5,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "kind")
 public class Kind {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long kind_id;
+    private Long id;
     private String name;
 
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -20,12 +21,12 @@ public class Kind {
     )
     Set<Book> books = new HashSet<>();
 
-    public Long getKind_id() {
-        return kind_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setKind_id(Long id) {
-        this.kind_id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
