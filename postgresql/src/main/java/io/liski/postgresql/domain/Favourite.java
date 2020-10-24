@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Favourite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long favourite_id;
     private String email;
     private String name;
 
@@ -16,12 +16,12 @@ public class Favourite {
     @OneToOne(mappedBy = "favourite")
     private Book book;
 
-    public Long getId() {
-        return id;
+    public Long getFavourite_id() {
+        return favourite_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFavourite_id(Long id) {
+        this.favourite_id = id;
     }
 
     public String getEmail() {

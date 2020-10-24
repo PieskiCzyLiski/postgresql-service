@@ -10,7 +10,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long book_id;
     private boolean audio;
     private String fragment;
     private String isbn;
@@ -32,19 +32,19 @@ public class Book {
     private Set<Epoch> epochs = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "reservation_id", referencedColumnName = "id")
+    @JoinColumn(name = "reservation_id", referencedColumnName = "book_id")
     private Reservation reservation;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "favourite_id", referencedColumnName = "id")
+    @JoinColumn(name = "favourite_id", referencedColumnName = "book_id")
     private Favourite favourite;
 
-    public Long getId() {
-        return id;
+    public Long getBook_id() {
+        return book_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBook_id(Long id) {
+        this.book_id = id;
     }
 
     public boolean isAudio() {

@@ -9,7 +9,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long author_id;
     private String name;
 
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -20,12 +20,12 @@ public class Author {
     )
     Set<Book> books = new HashSet<>();
 
-    public Long getId() {
-        return id;
+    public Long getAuthor_id() {
+        return author_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAuthor_id(Long id) {
+        this.author_id = id;
     }
 
     public String getName() {

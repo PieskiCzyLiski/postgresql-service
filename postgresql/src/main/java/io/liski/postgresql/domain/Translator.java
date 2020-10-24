@@ -9,7 +9,7 @@ public class Translator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long translator_id;
     private String name;
 
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -20,12 +20,12 @@ public class Translator {
     )
     Set<Book> books = new HashSet<>();
 
-    public Long getId() {
-        return id;
+    public Long getTranslator_id() {
+        return translator_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTranslator_id(Long id) {
+        this.translator_id = id;
     }
 
     public String getName() {

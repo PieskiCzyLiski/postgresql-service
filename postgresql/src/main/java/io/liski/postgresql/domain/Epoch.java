@@ -9,7 +9,7 @@ public class Epoch {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long epoch_id;
     private String name;
 
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -20,12 +20,12 @@ public class Epoch {
     )
     Set<Book> books = new HashSet<>();
 
-    public Long getId() {
-        return id;
+    public Long getEpoch_id() {
+        return epoch_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEpoch_id(Long id) {
+        this.epoch_id = id;
     }
 
     public String getName() {

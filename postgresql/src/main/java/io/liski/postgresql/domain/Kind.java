@@ -9,7 +9,7 @@ public class Kind {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long kind_id;
     private String name;
 
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -20,12 +20,12 @@ public class Kind {
     )
     Set<Book> books = new HashSet<>();
 
-    public Long getId() {
-        return id;
+    public Long getKind_id() {
+        return kind_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setKind_id(Long id) {
+        this.kind_id = id;
     }
 
     public String getName() {

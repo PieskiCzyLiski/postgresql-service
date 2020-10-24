@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long reservation_id;
     private String email;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
@@ -18,12 +18,12 @@ public class Reservation {
     @OneToOne(mappedBy = "reservation")
     private Book book;
 
-    public Long getId() {
-        return id;
+    public Long getReservation_id() {
+        return reservation_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setReservation_id(Long id) {
+        this.reservation_id = id;
     }
 
     public String getEmail() {

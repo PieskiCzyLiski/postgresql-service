@@ -7,28 +7,28 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
     private String email;
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="role_id", nullable=false)
+    @JoinColumn(name="role_id")//, nullable=false
     private Role role;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "reservation_id", referencedColumnName = "id")
+    @JoinColumn(name = "reservation_id", referencedColumnName = "user_id")
     private Reservation reservation;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "favourite_id", referencedColumnName = "id")
+    @JoinColumn(name = "favourite_id", referencedColumnName = "user_id")
     private Favourite favourite;
 
-    public Long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long id) {
+        this.user_id = id;
     }
 
     public String getEmail() {

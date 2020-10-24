@@ -9,18 +9,18 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long role_id;
     private String name;
 
     @OneToMany(mappedBy="role")
     Set<User> users = new HashSet<>();
 
-    public Long getId() {
-        return id;
+    public Long getRole_id() {
+        return role_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRole_id(Long id) {
+        this.role_id = id;
     }
 
     public String getName() {
