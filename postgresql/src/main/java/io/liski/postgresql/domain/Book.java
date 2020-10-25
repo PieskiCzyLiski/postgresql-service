@@ -25,15 +25,13 @@ public class Book {
   private String fragment;
   private String isbn;
   private String title;
+  private String translators;
 
   @ManyToMany(mappedBy = "books")
   private Set<Author> authors = new HashSet<>();
 
   @ManyToMany(mappedBy = "books")
   private Set<Kind> kinds = new HashSet<>();
-
-  @ManyToMany(mappedBy = "books")
-  private Set<Translator> translators = new HashSet<>();
 
   @ManyToMany(mappedBy = "books")
   private Set<Genre> genres = new HashSet<>();
@@ -103,14 +101,6 @@ public class Book {
     this.kinds = kinds;
   }
 
-  public Set<Translator> getTranslators() {
-    return translators;
-  }
-
-  public void setTranslators(Set<Translator> translators) {
-    this.translators = translators;
-  }
-
   public Set<Genre> getGenrres() {
     return genres;
   }
@@ -149,5 +139,13 @@ public class Book {
 
   public void setFavourites(List<Favourite> favourite) {
     this.favourites = favourite;
+  }
+
+  public String getTranslators() {
+    return translators;
+  }
+
+  public void setTranslators(String translators) {
+    this.translators = translators;
   }
 }
