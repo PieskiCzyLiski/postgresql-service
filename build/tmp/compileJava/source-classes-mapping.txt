@@ -1,0 +1,46 @@
+io/liski/postgresql/repositories/TranslatorRepository.java
+ io.liski.postgresql.repositories.TranslatorRepository
+io/liski/postgresql/controllers/BookController.java
+ io.liski.postgresql.controllers.BookController
+io/liski/postgresql/domain/Role.java
+ io.liski.postgresql.domain.Role
+io/liski/postgresql/repositories/EpochRepository.java
+ io.liski.postgresql.repositories.EpochRepository
+io/liski/postgresql/repositories/FavouriteRepository.java
+ io.liski.postgresql.repositories.FavouriteRepository
+io/liski/postgresql/repositories/AuthorRepository.java
+ io.liski.postgresql.repositories.AuthorRepository
+io/liski/postgresql/repositories/KindRepository.java
+ io.liski.postgresql.repositories.KindRepository
+io/liski/postgresql/PostgresqlApplication.java
+ io.liski.postgresql.PostgresqlApplication
+io/liski/postgresql/repositories/UserRepository.java
+ io.liski.postgresql.repositories.UserRepository
+io/liski/postgresql/repositories/RoleRepository.java
+ io.liski.postgresql.repositories.RoleRepository
+io/liski/postgresql/repositories/BookRepository.java
+ io.liski.postgresql.repositories.BookRepository
+io/liski/postgresql/controllers/RoleController.java
+ io.liski.postgresql.controllers.RoleController
+io/liski/postgresql/repositories/ReservationRepository.java
+ io.liski.postgresql.repositories.ReservationRepository
+io/liski/postgresql/repositories/GenreRepository.java
+ io.liski.postgresql.repositories.GenreRepository
+io/liski/postgresql/domain/Book.java
+ io.liski.postgresql.domain.Book
+io/liski/postgresql/domain/Author.java
+ io.liski.postgresql.domain.Author
+io/liski/postgresql/domain/Epoch.java
+ io.liski.postgresql.domain.Epoch
+io/liski/postgresql/domain/Genre.java
+ io.liski.postgresql.domain.Genre
+io/liski/postgresql/domain/Kind.java
+ io.liski.postgresql.domain.Kind
+io/liski/postgresql/domain/Translator.java
+ io.liski.postgresql.domain.Translator
+io/liski/postgresql/domain/Favourite.java
+ io.liski.postgresql.domain.Favourite
+io/liski/postgresql/domain/User.java
+ io.liski.postgresql.domain.User
+io/liski/postgresql/domain/Reservation.java
+ io.liski.postgresql.domain.Reservation
